@@ -22,4 +22,6 @@ def index(request):
 def print(request):
     if (request.method == 'POST'):
         text = request.POST['text']
-	print_text(text)
+        print("WORKS")
+        print(text)
+        print_text(text)
