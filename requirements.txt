@@ -1,0 +1,17 @@
+appdirs==1.4.4
+argcomplete==1.12.3
+asgiref==3.4.1
+Django==3.2.6
+escpos==1.9
+future==0.18.2
+Pillow==8.3.1
+pyserial==3.5
+python-barcode==0.13.1
+python-escpos==2.2.0
+pytz==2021.1
+pyusb==1.2.1
+PyYAML==5.4.1
+qrcode==7.2
+six==1.16.0
+sqlparse==0.4.1
+viivakoodi==0.8.0
