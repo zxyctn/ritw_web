@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-qr0+&(6z4ffk@^17)gl!)=#^%&=di&(hw52f^e6jiwpqg449#q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'angry-shrimp-24.loca.lt']
 
 
 # Application definition
