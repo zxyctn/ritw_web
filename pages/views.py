@@ -25,3 +25,5 @@ def print_text(request):
         print("WORKS")
         print(text)
         print_text_pi(text)
+
+        return render(request, 'pages/index.html')
