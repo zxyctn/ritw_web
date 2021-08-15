@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from escpos.printer import Serial
 
-def print_text(text):
+def print_text_pi(text):
     p = Serial(devfile='/dev/serial0',
             baudrate=19200,
             bytesize=8,
@@ -24,4 +24,4 @@ def print_text(request):
         text = request.POST['text']
         print("WORKS")
         print(text)
-        print_text(text)
+        print_text_pi(text)
