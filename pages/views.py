@@ -19,7 +19,7 @@ def print_text(text):
 def index(request):
     return render(request, 'pages/index.html')
 
-def print(request):
+def print_text(request):
     if (request.method == 'POST'):
         text = request.POST['text']
         print("WORKS")
