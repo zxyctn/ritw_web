@@ -10,9 +10,12 @@ def print_text(request):
     if (request.method == 'POST'):
         # Get the text to be printed
         text = request.POST['text']
-        # Logging received text
-        print("Received:\n" + text)
-        # Printing the received text
-        print_text_pi(text)
+        if (len(text) > 0):
+            # Logging received text
+            print("Received:\n" + text)
+            # Printing the received text
+            print_text_pi(text)
         # Rendering home page again
-        return render(request, 'pages/index.html')
+        # Rendering nothing
+        return 
+        # return render(request, 'pages/index.html')
