@@ -6,11 +6,26 @@
         <h1 class="text-center">Welcome</h1>
         <form action="{% url 'print_text' %}" method="POST">
             {% csrf_token %}
-            <div class="m-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Text to be printed</label>
-                <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <a class="btn btn-danger" data-bs-toggle="collapse" href="#custom"
+                role="button" aria-expanded="false" aria-controls="custom">
+                Custom
+            </a>
+            <a class="btn btn-success" data-bs-toggle="collapse" href="#dialog"
+                role="button" aria-expanded="false" aria-controls="dialog">
+                Dialog
+            </a>
+            <div class="collapse multi-collapse mt-2" id="custom">
+                <div class="">
+                    <label for="description" class="form-label">Text to be printed</label>
+                    <textarea name="text" class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block mt-2" value="Print">
             </div>
-            <input type="submit" class="btn btn-primary btn-lg mx-3" value="Print">
+
+            <div class="collapse multi-collapse mt-2" id="dialog">
+                <input type="submit" class="btn btn-primary btn-block mt-2" name="text" value="Hallo">
+                <input type="submit" class="btn btn-primary btn-block mt-2" name="text" value="Guten Tag!">
+            </div>
         </form>
     </div>
 </div>
