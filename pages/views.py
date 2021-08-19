@@ -1,29 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from escpos.printer import Serial
-
-def print_text_pi(text):
-    p = Serial(devfile='/dev/serial0',
-            baudrate=19200,
-            bytesize=8,
-            parity='N',
-            stopbits=1,
-            timeout=1.00,
-            dsrdtr=True)
-
-    p.set(align='center', font='b', width=3, height=3, custom_size=True)
-    p.block_text("\n\n\n" + text + "\n\n\n", columns=12)
-    p.cut()
+from . import print_text_pi
 
 def index(request):
     return render(request, 'pages/index.html')
 
 def print_text(request):
     if (request.method == 'POST'):
+        # Get the text to be printed
         text = request.POST['text']
-        print("WORKS")
-        print(text)
+        # Logging received text
+        print("Received:\n" + text)
+        # Printing the received text
         print_text_pi(text)
-
+        # Rendering home page again
         return render(request, 'pages/index.html')
