@@ -2,30 +2,53 @@
 
 {% block content %}
 <div class="container">
-    <div class="m-5 p-5">
-        <h1 class="text-center">Welcome</h1>
+    <div class="mt-5">
+        <h1 class="text-center"><span id="h1-span">Control Panel</h1>
         <form action="{% url 'print_text' %}" method="POST">
             {% csrf_token %}
-            <a class="btn btn-danger" data-bs-toggle="collapse" href="#custom"
+            <a class="btn btn-danger mt-5" data-bs-toggle="collapse" href="#custom"
                 role="button" aria-expanded="false" aria-controls="custom">
                 Custom
             </a>
-            <a class="btn btn-success" data-bs-toggle="collapse" href="#dialog"
-                role="button" aria-expanded="false" aria-controls="dialog">
-                Dialog
-            </a>
             <div class="collapse multi-collapse mt-2" id="custom">
-                <div class="">
+                <div class="container p-3" id="custom-container">
                     <label for="description" class="form-label">Text to be printed</label>
                     <textarea name="text" class="form-control" id="description" rows="3"></textarea>
+                    <input type="submit" class="btn btn-primary btn-block mt-2" value="Print">
                 </div>
-                <input type="submit" class="btn btn-primary btn-block mt-2" value="Print">
             </div>
 
-            <div class="collapse multi-collapse mt-2" id="dialog">
-                <div class="container p-3" id="dialog-container">
-                    <input type="submit" class="btn btn-primary btn-block" name="text" value="Hallo">
-                    <input type="submit" class="btn btn-primary btn-block" name="text" value="Guten Tag!">
+            <div class="mt-3">
+                <h2>Introduction</h2>
+                <hr>
+                <div class="container p-3 row mx-auto" id="dialog-container">
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;" name="text"
+                            value="Hallo">
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;" name="text" 
+                            value="Guten Tag!">
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
+                            value= "Ich bin WeiBot von der Bauhaus Universität Weimar. 
+                                Hätten sie 5 Minuten Zeit sich mit mir über diesen Park zu unterhalten?
+                                Wenn dem so ist, sagen sie bitte einfach &quot;ja&quot;. :)"
+                        >
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-6 mb-1" style="white-space: normal;" name="text" 
+                            value="Ich bin hier um Meinungen zudem Weimarhallenpark einzuholen."
+                        >
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-1 mb-1" style="white-space: normal;" name="text" 
+                            value="Super!"
+                        >
+                    </div>
+                    
+                    
                 </div>
             </div>
         </form>
