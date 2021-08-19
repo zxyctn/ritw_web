@@ -16,4 +16,5 @@ def print_text(request):
             # Printing the received text
             print_text_pi(text)
         # Rendering home page again
-        return render(request, 'pages/index.html')
+        # return render(request, 'pages/index.html')
+        return HttpResponse('')
