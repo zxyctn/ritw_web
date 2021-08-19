@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from . import print_text_pi
+from .print_text_pi import print_text_pi
 
 def index(request):
     return render(request, 'pages/index.html')
