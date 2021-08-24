@@ -11,6 +11,6 @@ def print_text_pi(text: str):
             dsrdtr=True)
 
     # Printing configuration
-    p.set(align='center', font='b', width=3, height=3, custom_size=True)
+    p.set(align='center', font='b', width=3, flip=True, height=3, custom_size=True)
     p.block_text("\n\n\n" + text + "\n\n\n", columns=12)
     p.cut()
