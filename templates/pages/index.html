@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="fab" data-bs-toggle="modal" data-bs-target="#exampleModal"> # </div>
+
 <div class="container">
     <div class="mt-5">
         <h1 class="text-center"><span id="h1-span">Control Panel</h1>
         <form action="{% url 'print_text' %}" method="POST">
             {% csrf_token %}
-            <a class="btn btn-danger mt-5" data-bs-toggle="collapse" href="#custom"
-                role="button" aria-expanded="false" aria-controls="custom">
-                Custom
-            </a>
-            <div class="collapse multi-collapse mt-2" id="custom">
-                <div class="container p-3" id="custom-container">
-                    <label for="description" class="form-label">Text to be printed</label>
-                    <textarea name="text" class="form-control" id="description" rows="3"></textarea>
-                    <input type="submit" class="btn btn-primary btn-block mt-2" value="Print">
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Text to be printed</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="" id="custom">
+                                <div class="container" id="">
+                                    <textarea name="text" class="form-control" id="description" rows="3"></textarea>
+                                    <input type="submit" class="btn btn-primary btn-block mt-2" value="Print">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -23,82 +35,73 @@
                 <hr>
                 <div class="container p-3 row mx-auto" id="dialog-container">
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;" name="text"
-                            value="Hallo">
+                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;"
+                            name="text" value="Hallo">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;" name="text" 
-                            value="Guten Tag!">
+                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;"
+                            name="text" value="Guten Tag!">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Ich bin WeiBot von der Bauhaus Universität Weimar. 
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Ich bin WeiBot von der Bauhaus Universität Weimar. 
                                 Hätten sie 5 Minuten Zeit sich mit mir über diesen Park zu unterhalten?
-                                Wenn dem so ist, sagen sie bitte einfach &quot;ja&quot;. :)"
-                        >
+                                Wenn dem so ist, sagen sie bitte einfach &quot;ja&quot;. :)">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-6 mb-1" style="white-space: normal;" name="text" 
-                            value="Ich bin hier um Meinungen zu dem Weimarhallenpark einzuholen."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-6 mb-1" style="white-space: normal;"
+                            name="text" value="Ich bin hier um Meinungen zu dem Weimarhallenpark einzuholen.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;" name="text" 
-                            value="Super!"
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;"
+                            name="text" value="Super!">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-danger col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Okay, kein Problem. Trotzdem danke für Ihre Zeit. 
+                        <input type="submit" class="btn btn-danger col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Okay, kein Problem. Trotzdem danke für Ihre Zeit. 
                             Ich werde noch eine Weile hier im Park sein, falls Sie doch noch einmal
-                            vorbeikommen möchten. Haben Sie einen schönen Tag!"
-                        >
+                            vorbeikommen möchten. Haben Sie einen schönen Tag!">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Ich werde Sie mithilfe dieser ausgedruckten Nachrichten durch die Interaktion führen.
-Ich kann verstehen was sie sagen und reagiere entsprechend mit Text auf diesem Papier."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Ich werde Sie mithilfe dieser ausgedruckten Nachrichten durch die Interaktion führen.
+Ich kann verstehen was sie sagen und reagiere entsprechend mit Text auf diesem Papier.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Durch unsere Interaktion soll sich zeigen wie zufrieden Sie und andere mit dem Weimarhallenpark sind. Ich werde Ihnen im Folgenden ein paar Fragen zum Park stellen und werte die Ergebnisse dann anonymisiert aus."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Durch unsere Interaktion soll sich zeigen wie zufrieden Sie und andere mit dem Weimarhallenpark sind. Ich werde Ihnen im Folgenden ein paar Fragen zum Park stellen und werte die Ergebnisse dann anonymisiert aus.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Ich werde ihre Stimme und ihr Bild nicht aufnehmen. Mein Job ist es lediglich das Gesagte zu analysieren und ein generelles Feedback an die Universität Weimar zu senden."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Ich werde ihre Stimme und ihr Bild nicht aufnehmen. Mein Job ist es lediglich das Gesagte zu analysieren und ein generelles Feedback an die Universität Weimar zu senden.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Sie brauchen nur mit mir zu reden, ich kann verstehen, was Sie sagen. Und keine Sorge, Sie können eine Frage jederzeit auslassen oder das Gespräch beenden. Sagen Sie mir dann einfach Bescheid."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Sie brauchen nur mit mir zu reden, ich kann verstehen, was Sie sagen. Und keine Sorge, Sie können eine Frage jederzeit auslassen oder das Gespräch beenden. Sagen Sie mir dann einfach Bescheid.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value= "Mein Job ist es, hier im Park mit Leuten zu interagieren und herauzufinden, wie sie den Weimarhallenpark finden. Fangen wir an ..."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Mein Job ist es, hier im Park mit Leuten zu interagieren und herauzufinden, wie sie den Weimarhallenpark finden. Fangen wir an ...">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value="Weitere Informationen werden folgen und Sie können jederzeit gehen."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Weitere Informationen werden folgen und Sie können jederzeit gehen.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text" 
-                            value="Manchmal kann das einen Moment dauern."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Manchmal kann das einen Moment dauern.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;" name="text" 
-                            value="Reißen Sie sie gern einfach ab."
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text" value="Reißen Sie sie gern einfach ab.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;" name="text" 
-                            value="... Was hat sie heute hierher geführt?"
-                        >
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text" value="... Was hat sie heute hierher geführt?">
                     </div>
                 </div>
 
@@ -107,24 +110,24 @@ Ich kann verstehen was sie sagen und reagiere entsprechend mit Text auf diesem P
                 <hr>
                 <div class="container p-3 row mx-auto" id="dialog-container">
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
-                            value="Würden Sie sich neben mich auf die Bank setzten?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Würden Sie sich neben mich auf die Bank setzten?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
-                            value="Okay. Wie ist ihr Name?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Okay. Wie ist ihr Name?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
-                            value="Was gefällt Ihnen an diesem Park?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Was gefällt Ihnen an diesem Park?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
-                            value="Was würden Sie gern an dem Park verbessern?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Was würden Sie gern an dem Park verbessern?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;" name="text"
-                            value="Erinnern Sie sich an besondere Erlebnisse hier?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text" value="Erinnern Sie sich an besondere Erlebnisse hier?">
                     </div>
                 </div>
 
@@ -133,12 +136,24 @@ Ich kann verstehen was sie sagen und reagiere entsprechend mit Text auf diesem P
                 <hr>
                 <div class="container p-3 row mx-auto" id="dialog-container">
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
                             value="Danke für Ihre Offenheit. Da ich noch einige Stunden weiterarbeiten muss würde ich Sie gern um Hilfe bitten, meine Batterie wieder aufzuladen.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;" name="text"
-                            value=" Würden Sie mich bitte zu der Ladestation auf der Bank neben uns bringen? Meine Batterie ist bald leer.">
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Würden Sie mich bitte zu der Ladestation auf der Bank neben uns bringen? Meine Batterie ist bald leer.">
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Verbinden Sie bitte die Enden beider gruenen Kabel miteinander.">
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text"
+                            value="Vielen Dank, die Batterie wird nun geladen.">
                     </div>
                 </div>
 
@@ -149,20 +164,22 @@ Ich kann verstehen was sie sagen und reagiere entsprechend mit Text auf diesem P
                 <hr>
                 <div class="container p-3 row mx-auto" id="dialog-container">
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;" name="text"
-                            value="Könnten Sie mich anpusten, um mich etwas herunterzukühlen?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text" value="Könnten Sie mich anpusten, um mich etwas herunterzukühlen?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-danger col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
+                        <input type="submit" class="btn btn-danger col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
                             value="Okay, kein Problem. Könnten Sie mich stattdessen anpusten, damit die Batterie ein wenig herunterkühlen kann?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-success col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
+                        <input type="submit" class="btn btn-success col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text"
                             value="Vielen Dank! Da ich nun mit dem Strom verbunden bin hitze ich mich sehr schnell auf.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-success col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
-                            value="Vielen Dank für das Runterkühlen!.">
+                        <input type="submit" class="btn btn-success col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Vielen Dank für das Runterkühlen!.">
                     </div>
                 </div>
 
@@ -172,24 +189,25 @@ Ich kann verstehen was sie sagen und reagiere entsprechend mit Text auf diesem P
                 <hr>
                 <div class="container p-3 row mx-auto" id="dialog-container">
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-danger col-12 col-md-3 mb-1" style="white-space: normal;" name="text"
+                        <input type="submit" class="btn btn-danger col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text"
                             value="Okay, das ist nicht schlimm. Würden Sie mich zum Schluss noch einmal umarmen?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-success col-12 col-md-3 mb-1" style="white-space: normal;" name="text"
-                            value="Danke für Ihre Hilfe, das ist wirklich toll.">
+                        <input type="submit" class="btn btn-success col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text" value="Danke für Ihre Hilfe, das ist wirklich toll.">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;" name="text"
-                            value="Wie wäre es mit einer Umarmung zum Schluss?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-3 mb-1" style="white-space: normal;"
+                            name="text" value="Wie wäre es mit einer Umarmung zum Schluss?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;" name="text"
-                            value="Ich kann mich lieder nicht bewegen, würden Sie zu mir kommen?">
+                        <input type="submit" class="btn btn-primary col-12 col-md-4 mb-1" style="white-space: normal;"
+                            name="text" value="Ich kann mich lieder nicht bewegen, würden Sie zu mir kommen?">
                     </div>
                     <div class="col-12 m-0 p-0">
-                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;" name="text"
-                            value="Danke für Ihre Zeit!">
+                        <input type="submit" class="btn btn-primary col-12 col-md-2 mb-1" style="white-space: normal;"
+                            name="text" value="Danke für Ihre Zeit!">
                     </div>
                 </div>
 
