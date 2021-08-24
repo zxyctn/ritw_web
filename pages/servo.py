@@ -7,24 +7,35 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPIN, GPIO.OUT)
 
 p = GPIO.PWM(servoPIN, 50)  # GPIO 17 for PWM with 50Hz
-p.start(2.5)  # Initialization
+p.start(0)  # Initialization
+
+
+def SetAngle(angle):
+    duty = angle / 18 + 2
+    GPIO.output(servoPIN, True)
+    p.ChangeDutyCycle(duty)
+    sleep(1)
+    GPIO.output(servoPIN, False)
+    p.ChangeDutyCycle(0)
+
+
 try:
-  while True:
-    p.ChangeDutyCycle(randrange(0, 100, 1))
-    print('First movement')
+    while True:
+        SetAngle(randrange(0, 100, 1))
+        print('First movement')
 
-    p.ChangeDutyCycle(randrange(0, 100, 1))
-    print('Second movement')
+        SetAngle(randrange(0, 100, 1))
+        print('Second movement')
 
-    p.ChangeDutyCycle(randrange(0, 100, 1))
-    print('Third movement')
+        SetAngle(randrange(0, 100, 1))
+        print('Third movement')
 
-    p.ChangeDutyCycle(randrange(0, 100, 1))
-    print('Last movement')
+        SetAngle(randrange(0, 100, 1))
+        print('Last movement')
 
-    print('1 second delay')
-    time.sleep(1)
+        print('1 second delay')
+        time.sleep(1)
 
 except KeyboardInterrupt:
-  p.stop()
-  GPIO.cleanup()
+    p.stop()
+    GPIO.cleanup()
