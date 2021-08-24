@@ -14,7 +14,7 @@ def print_text_pi(text: str):
                dsrdtr=True)
 
     # Flipping and re-ordering the text fragments
-    text_list = textwrap.wrap(text, width=12,  initial_indent="", subsequent_indent="",
+    text_list = textwrap.wrap(text, width=11,  initial_indent="", subsequent_indent="",
                               expand_tabs=True, replace_whitespace=True,
                               fix_sentence_endings=False, break_long_words=True,
                               drop_whitespace=True, break_on_hyphens=True, tabsize=8,
@@ -30,7 +30,7 @@ def print_text_pi(text: str):
     p.set(align='center', font='b', width=3,
           flip=True, height=3, custom_size=True)
 
-    p.block_text('\n\n\n', columns=11)
+    p.block_text('\n\n\n', columns=12)
 
     for t in text_list:
         p.block_text(t + ' ', columns=12)
