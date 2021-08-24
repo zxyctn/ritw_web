@@ -26,10 +26,10 @@ def print_text_pi(text: str):
     p.set(align='center', font='b', width=3,
           flip=True, height=3, custom_size=True)
 
-    p.text("\n\n\n")
+    p.text("\n\n")
 
     for t in text_list:
         p.text(t + "\n")
 
-    p.text('\n\n\n')
+    p.text('\n')
     p.cut()
