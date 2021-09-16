@@ -16,3 +16,19 @@ def SetAngle(angle):
     sleep(1)
     GPIO.output(servoPIN, False)
     p.ChangeDutyCycle(0)
+
+def move_servo_pi():
+    SetAngle(randrange(0, 100, 1))
+    print('First movement')
+
+    SetAngle(randrange(0, 100, 1))
+    print('Second movement')
+
+    SetAngle(randrange(0, 100, 1))
+    print('Third movement')
+
+    SetAngle(randrange(0, 100, 1))
+    print('Last movement')
+
+    print('1 second delay')
+    time.sleep(1)
